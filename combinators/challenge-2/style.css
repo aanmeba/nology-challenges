@@ -13,6 +13,7 @@ h1 + p {
 
 h2 ~ p {
   text-decoration: underline;
+  color: black;
 }
 
 h3 ~ p {
