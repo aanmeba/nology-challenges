@@ -1,0 +1,26 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+  width: 600px;
+  height: 100%;
+  border: 3px solid orange;
+  background-color: rgb(150, 244, 124);
+  box-sizing: border-box;
+}
+
+.inner {
+  background-color: rgb(245, 107, 181);
+  padding: 20px;
+  margin: 30px 0 30px 1px;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style-type: none;
+}
+
+ul > li {
+  margin: 15px 0;
+}
