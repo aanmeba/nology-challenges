@@ -1,0 +1,38 @@
+body {
+  display: flex;
+  justify-content: center;
+}
+main {
+  width: 900px;
+  height: 300px;
+  border: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+
+  flex-wrap: wrap;
+}
+
+div {
+  width: 300px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#card8 {
+  background-color: skyblue;
+}
+#card9 {
+  background-color: orange;
+}
+#card10 {
+  background-color: pink;
+}
+#card11 {
+  background-color: red;
+}
+#card12 {
+  background-color: mediumaquamarine;
+}
