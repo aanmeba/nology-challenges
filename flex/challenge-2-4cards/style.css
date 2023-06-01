@@ -5,15 +5,6 @@ main {
   flex-wrap: wrap;
 }
 
-div {
-  width: 33.33%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
 #card4 {
   background-color: skyblue;
 }
