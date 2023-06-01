@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>SCSS-BEM challenge</title>
+  </head>
+  <body>
+    <header
+      class="header header--border header--border-dashed header--border-color-green"
+    >
+      <h2 class="header">My first header section</h2>
+      <p class="header">This header has a green 3px border that is dashed</p>
+      <p class="header__text-line-through header__text-color-blue">
+        I'm a blue line through paragraph
+      </p>
+    </header>
+    <header class="header header--border header--border-color-coral">
+      <h2 class="header__text-align-center">I'm in the center</h2>
+      <p class="header">
+        This header section has a coral 2px border that is solid
+      </p>
+      <p
+        class="header__text-line-through header__text-color-blue header__text-align-right"
+      >
+        I'm a blue line through paragraph, I'm also aligned to the right
+      </p>
+    </header>
+    <br />
+    <br />
+    <div class="container">
+      <h2 class="container__text-arial container__text-blue">
+        I'm blue and Arial
+      </h2>
+      <p
+        class="container__text-arial container__text-underlined container__text-underlined container__text-red"
+      >
+        I'm red, underlined and Arial
+      </p>
+      <ul class="container__list-no-bullet">
+        <li>I have no bullet point</li>
+        <li>I also have no bullet point</li>
+      </ul>
+    </div>
+    <p class="text--coral text--bold">I'm coral and bold</p>
+    <div class="container">
+      <h2 class="container__text-arial container__text-blue">
+        I'm blue and Arial
+      </h2>
+      <p
+        class="container__text-arial container__text-underlined container__text-red"
+      >
+        I'm red, underlined and Arial
+      </p>
+      <ul class="container__list-no-bullet">
+        <li>I have no bullet point</li>
+      </ul>
+      <p
+        class="container__text-arial container__text-underlined container__text-red"
+      >
+        I'm red, underlined and Arial
+      </p>
+    </div>
+    <p class="text text--coral text--bold">I'm coral and bold</p>
+    <p class="text text--brown">I'm brown</p>
+    <p class="text text--brown">I'm also brown</p>
+  </body>
+</html>

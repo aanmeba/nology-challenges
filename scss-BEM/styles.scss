@@ -1,0 +1,73 @@
+.header {
+  font-family: Arial, Helvetica, sans-serif;
+
+  &--border {
+    border: 2px solid black;
+  }
+
+  &--border-dashed {
+    border-style: dashed;
+  }
+
+  &--border-color-green {
+    border-color: green;
+  }
+
+  &--border-color-coral {
+    border-color: coral;
+  }
+
+  &__text-align-center {
+    text-align: center;
+  }
+
+  &__text-align-right {
+    text-align: right;
+  }
+
+  &__text-color-blue {
+    color: blue;
+  }
+
+  &__text-line-through {
+    text-decoration: line-through;
+  }
+}
+
+.container {
+  border: 2px solid black;
+
+  &__text-arial {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  &__text-underlined {
+    text-decoration: underline;
+  }
+
+  &__text-red {
+    color: red;
+  }
+
+  &__text-blue {
+    color: blue;
+  }
+
+  &__list-no-bullet {
+    list-style-type: none;
+  }
+}
+
+.text {
+  &--bold {
+    font-weight: bold;
+  }
+
+  &--coral {
+    color: coral;
+  }
+
+  &--brown {
+    color: brown;
+  }
+}
