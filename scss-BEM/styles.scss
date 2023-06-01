@@ -3,54 +3,57 @@
 
   &--border {
     border: 2px solid black;
+
+    &--dashed {
+      border-style: dashed;
+    }
+    &--color-green {
+      border-color: green;
+    }
+
+    &--color-coral {
+      border-color: coral;
+    }
   }
 
-  &--border-dashed {
-    border-style: dashed;
-  }
+  &__text {
+    &--align-center {
+      text-align: center;
+    }
 
-  &--border-color-green {
-    border-color: green;
-  }
+    &--align-right {
+      text-align: right;
+    }
 
-  &--border-color-coral {
-    border-color: coral;
-  }
+    &--color-blue {
+      color: blue;
+    }
 
-  &__text-align-center {
-    text-align: center;
-  }
-
-  &__text-align-right {
-    text-align: right;
-  }
-
-  &__text-color-blue {
-    color: blue;
-  }
-
-  &__text-line-through {
-    text-decoration: line-through;
+    &--line-through {
+      text-decoration: line-through;
+    }
   }
 }
 
 .container {
   border: 2px solid black;
 
-  &__text-arial {
-    font-family: Arial, Helvetica, sans-serif;
-  }
+  &__text {
+    &--arial {
+      font-family: Arial, Helvetica, sans-serif;
+    }
 
-  &__text-underlined {
-    text-decoration: underline;
-  }
+    &--underlined {
+      text-decoration: underline;
+    }
 
-  &__text-red {
-    color: red;
-  }
+    &--red {
+      color: red;
+    }
 
-  &__text-blue {
-    color: blue;
+    &--blue {
+      color: blue;
+    }
   }
 
   &__list-no-bullet {
