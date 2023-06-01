@@ -4,16 +4,3 @@ main {
 
   flex-wrap: wrap;
 }
-
-#card4 {
-  background-color: skyblue;
-}
-#card5 {
-  background-color: orange;
-}
-#card6 {
-  background-color: pink;
-}
-#card7 {
-  background-color: red;
-}

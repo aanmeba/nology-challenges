@@ -2,13 +2,3 @@ main {
   display: flex;
   justify-content: center;
 }
-
-#card1 {
-  background-color: skyblue;
-}
-#card2 {
-  background-color: orange;
-}
-#card3 {
-  background-color: pink;
-}
