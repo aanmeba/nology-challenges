@@ -1,12 +1,4 @@
-body {
-  display: flex;
-  justify-content: center;
-}
-
 main {
-  width: 900px;
-  height: 300px;
-  border: 1px solid black;
   display: flex;
   justify-content: flex-start;
 
@@ -14,8 +6,8 @@ main {
 }
 
 div {
-  width: 300px;
-  height: 300px;
+  width: 33.33%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
