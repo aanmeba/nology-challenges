@@ -1,0 +1,82 @@
+#css-zen-garden {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.page-wrapper {
+  width: 80vw;
+  margin: 10rem auto;
+  background-color: aqua;
+}
+.page-wrapper .intro header {
+  width: 40vw;
+  margin: 2rem auto;
+  background-color: aliceblue;
+  text-align: right;
+}
+.page-wrapper .intro header h1 {
+  font-size: 3rem;
+  margin: 0;
+}
+.page-wrapper .intro header h2 {
+  margin: 0;
+  position: absolute;
+  left: 1rem;
+}
+
+div[role=article] {
+  display: flex;
+  flex-direction: column;
+  width: 40vw;
+  margin: 2rem auto;
+  background-color: antiquewhite;
+  text-align: right;
+}
+div[role=article] h3 {
+  position: absolute;
+  right: 1rem;
+  color: lightcoral;
+}
+
+.main {
+  background-color: lightpink;
+}
+
+footer {
+  background-color: lightyellow;
+}
+
+.sidebar {
+  background-color: lightseagreen;
+}
+
+.design-selection {
+  background-color: lightgrey;
+  position: absolute;
+  left: 1rem;
+  top: 20rem;
+}
+.design-selection nav ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.design-archives {
+  background-color: lightsteelblue;
+  position: absolute;
+  left: 1rem;
+  top: 40rem;
+}
+.design-archives nav ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.zen-resources {
+  background-color: lightgoldenrodyellow;
+}
+.zen-resources ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+/*# sourceMappingURL=style.css.map */
