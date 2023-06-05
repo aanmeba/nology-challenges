@@ -1,5 +1,5 @@
 console.log("*** Working with ages ***");
-const age = 10;
+let age = 10;
 console.log((age += 10));
 console.log((age -= 7));
 console.log((age *= 11));
