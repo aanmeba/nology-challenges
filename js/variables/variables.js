@@ -7,7 +7,7 @@
 
 const firstName = "Jungah";
 const lastName = "Ahn";
-const age = 35;
+const age = 20;
 
 console.log(
   `Hi, my name is ${firstName} ${lastName} and I am ${age} years old`
