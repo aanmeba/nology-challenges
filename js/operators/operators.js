@@ -1,13 +1,8 @@
 console.log("*** Working with ages ***");
 const age = 10;
-const addTen = age + 10;
-console.log(addTen);
-
-const subtractSeven = age - 7;
-console.log(subtractSeven);
-
-const multiplyEleven = age * 11;
-console.log(multiplyEleven);
+console.log((age += 10));
+console.log((age -= 7));
+console.log((age *= 11));
 
 console.log("*** Calculating Moon Rotations ***");
 const earthDays = 55;
