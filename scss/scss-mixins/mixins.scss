@@ -1,0 +1,10 @@
+@mixin text($bgColor: none) {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  text-align: center;
+  background-color: $bgColor;
+}
+
+@mixin border($style: solid, $color: blue) {
+  border: 2px $style $color;
+}

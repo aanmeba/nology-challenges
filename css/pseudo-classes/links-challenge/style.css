@@ -1,0 +1,16 @@
+a {
+  color: aqua;
+}
+
+a:visited {
+  color: yellowgreen;
+}
+
+a:active {
+  color: black;
+  background-color: pink;
+}
+
+a:hover {
+  color: rgb(119, 0, 255);
+}
