@@ -78,6 +78,8 @@ switch (day) {
 let parent1 = "blue",
   parent2 = "blue";
 
+/** Solution 1 - if **/
+
 if (parent1 === "brown" && parent2 === "brown") {
   console.log(
     `Your eye colours are ${parent1} and ${parent2}, the chances of your child having brown is 75%, green is 18.75% and blue eyes is 6.25%`
@@ -103,6 +105,51 @@ if (parent1 === "brown" && parent2 === "brown") {
     `Your eye colours are ${parent1} and ${parent2}, the chances of your child having brown is 0%, green is 1% and blue eyes is 99%`
   );
 }
+
+/** Solution 2 - Objects **/
+
+// const chart = {
+//   "brown+brown": {
+//     brown: 75,
+//     green: 18.75,
+//     blue: 6.25,
+//   },
+//   "green+brown": {
+//     brown: 50,
+//     green: 37.5,
+//     blue: 12.5,
+//   },
+//   "blue+brown": {
+//     brown: 50,
+//     green: 0,
+//     blue: 50,
+//   },
+//   "green+green": {
+//     brown: "<1",
+//     green: 75,
+//     blue: 25,
+//   },
+//   "green+blue": {
+//     brown: 0,
+//     green: 50,
+//     blue: 50,
+//   },
+//   "blue+blue": {
+//     brown: 0,
+//     green: 1,
+//     blue: 99,
+//   },
+// };
+
+// const key = parent1 + "+" + parent2;
+
+// if (chart.hasOwnProperty(key)) {
+//   console.log(
+//     `Your eye colours are ${parent1} and ${parent2}, the chances of your child having brown is ${chart[key].brown}%, green is ${chart[key].green}% and blue eyes is ${chart[key].blue}%`
+//   );
+// } else {
+//   console.log("Invalid eye colours combination");
+// }
 
 /***
  * Bonus
