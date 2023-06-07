@@ -1,0 +1,14 @@
+@use "mixins";
+
+section p:nth-child(1) {
+  @include mixins.border(dotted, red);
+  @include mixins.text(#e3e3e3);
+}
+section p:nth-child(2) {
+  @include mixins.border;
+  @include mixins.text;
+}
+section p:nth-child(3) {
+  @include mixins.border(dashed);
+  @include mixins.text;
+}
