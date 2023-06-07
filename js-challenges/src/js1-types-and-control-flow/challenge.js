@@ -19,7 +19,7 @@ const firstName = "John";
 const lastName = "Smith";
 
 export const createFullName = () => {
-  // Write your code here
+  return `${firstName} ${lastName}`;
 };
 
 /**
@@ -32,7 +32,7 @@ const largeNumber1 = 100;
 const largeNumber2 = 200;
 
 export const findLargestNumber = () => {
-  // Write your code here
+  return Math.max(largeNumber1, largeNumber2);
 };
 
 /**
@@ -45,7 +45,7 @@ const addNumber1 = 12;
 const addNumber2 = 24;
 
 export const addNumbers = () => {
-  // Write your code here
+  return addNumber1 + addNumber2;
 };
 
 /* Intermediate Challenges */
@@ -59,7 +59,7 @@ export const addNumbers = () => {
 const password = "thisIsMyVeryLongPassword123456789";
 
 export const findLengthOfPassword = () => {
-  // Write your code here
+  return password.length;
 };
 
 /**
@@ -75,7 +75,7 @@ export const findLengthOfPassword = () => {
 const thing = "I am a thing";
 
 export const findType = () => {
-  // Write your code here
+  return `This is a ${typeof thing}`;
 };
 
 /**
@@ -88,7 +88,9 @@ export const findType = () => {
 const nameTagOption = "Timothy";
 
 export const getIsValidOnNameTag = () => {
-  // Write your code here
+  const firstChar = nameTagOption.charAt(0);
+  const isFirstCharCapital = firstChar === firstChar.toUpperCase();
+  return nameTagOption.length <= 8 && isFirstCharCapital;
 };
 
 /* Advanced Challenges */
@@ -102,7 +104,7 @@ export const getIsValidOnNameTag = () => {
 const stringToConvert = "14.45";
 
 export const convertStringToNumber = () => {
-  // Write your code here
+  return +stringToConvert;
 };
 
 /**
@@ -116,7 +118,8 @@ export const convertStringToNumber = () => {
 const stringWithUppercaseLetters = "I Am A String With Uppercase Letters";
 
 export const getHasUppercaseLetters = () => {
-  // Write your code here
+  const regex = /[A-Z]/g;
+  return stringWithUppercaseLetters.match(regex).length > 0;
 };
 
 /* Expert Challenge */
@@ -130,5 +133,13 @@ export const getHasUppercaseLetters = () => {
 const pascalCaseVariableName = "IWantToBeSnakeCase";
 
 export const convertPascalCaseToSnakeCase = () => {
-  // Write your code here
+  let str = "";
+  for (let i = 0; i < pascalCaseVariableName.length; i++) {
+    const currentChar = pascalCaseVariableName.charAt(i);
+    currentChar === currentChar.toUpperCase()
+      ? (str += `_${currentChar}`)
+      : (str += currentChar);
+  }
+
+  return str.toLowerCase().slice(1);
 };
