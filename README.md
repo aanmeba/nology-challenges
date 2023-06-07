@@ -4,6 +4,6 @@ This repository is an archive for the challneges that I have been doing and have
 
 ## Table of Contents
 
-- [CSS/SCSS](https://github.com/aanmeba/nology-challenges/tree/main/css-scss)
-- [JS](https://github.com/aanmeba/nology-challenges/tree/main/js)
-- [JS Challenges](https://github.com/aanmeba/nology-challenges/tree/main/js-challneges)
+- [css-scss](https://github.com/aanmeba/nology-challenges/tree/main/css-scss)
+- [javascript](https://github.com/aanmeba/nology-challenges/tree/main/javascript)
+- [js-challenges](https://github.com/aanmeba/nology-challenges/tree/main/js-challenges)
