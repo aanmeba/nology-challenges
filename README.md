@@ -4,7 +4,6 @@ This repository is an archive for the challneges that I have been doing and have
 
 ## Table of Contents
 
-- [CSS](https://github.com/aanmeba/nology-challenges/tree/main/css)
-- [SCSS](https://github.com/aanmeba/nology-challenges/tree/main/scss)
-- [CSS Zen Garden](https://github.com/aanmeba/nology-challenges/tree/main/css-zen-garden)
+- [CSS/SCSS](https://github.com/aanmeba/nology-challenges/tree/main/css-scss)
 - [JS](https://github.com/aanmeba/nology-challenges/tree/main/js)
+- [JS Challenges](https://github.com/aanmeba/nology-challenges/tree/main/js-challneges)
