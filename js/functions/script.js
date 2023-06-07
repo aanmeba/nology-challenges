@@ -6,6 +6,12 @@ const moonOrbits = (days) => (days / 27.322).toFixed(3);
 console.log(moonOrbits(54));
 console.log(moonOrbits(365));
 
+// Solution - 2
+// const moonOrbits2 = (days) => {
+//   const totalOrbits = days / 27;
+//   return days % 27 === 0 ? totalOrbits : totalOrbits.toFixed(3);
+// };
+
 /***
  * Challenge: Working with Circles
  * ***/
@@ -49,7 +55,7 @@ console.log(pointsCalculator(2, 3));
  * Challenge: Less Than 100?
  * ***/
 
-const lessThan100 = (num1, num2) => (num1 + num2 < 100 ? true : false);
+const lessThan100 = (num1, num2) => num1 + num2 < 100;
 
 console.log(lessThan100(22, 15));
 console.log(lessThan100(83, 34));
