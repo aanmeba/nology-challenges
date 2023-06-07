@@ -75,10 +75,10 @@ switch (day) {
  * Challenge: Eye Colour
  * ***/
 
-let parent1 = "blue",
-  parent2 = "blue";
+let parent1 = "green",
+  parent2 = "green";
 
-/** Solution 1 - if **/
+/** Solution 1 - if - my original solution **/
 
 // if (parent1 === "brown" && parent2 === "brown") {
 //   console.log(
@@ -106,40 +106,93 @@ let parent1 = "blue",
 //   );
 // }
 
-/** Solution 2 - switch **/
+/** Solution 2 - if **/
+
+let blue, brown, green;
+let child;
+
+// if (parent1 === "brown" && parent2 === "brown") {
+//   brown = 75;
+//   green = 18.75;
+//   blue = 6.25;
+// } else if (parent1 === "green" && parent2 === "brown") {
+//   brown = 50;
+//   green = 37.5;
+//   blue = 12.5;
+// } else if (parent1 === "blue" && parent2 === "brown") {
+//   brown = 50;
+//   green = 0;
+//   blue = 50;
+// } else if (parent1 === "green" && parent2 === "green") {
+//   brown = "less than 1";
+//   green = 75;
+//   blue = 25;
+// } else if (parent1 === "green" && parent2 === "blue") {
+//   brown = 0;
+//   green = 50;
+//   blue = 50;
+// } else if (parent1 === "blue" && parent2 === "blue") {
+//   brown = 0;
+//   green = 1;
+//   blue = 99;
+// }
+
+console.log(
+  `Your eye colours are ${parent1} and ${parent2}, the chances of your child having brown is ${brown}%, green is ${green}% and blue eyes is ${blue}%`,
+  "--- solution 2"
+);
+
+/** Solution 3 - switch **/
 
 const parents = parent1 + parent2;
 
 switch (parents) {
   case "brownbrown":
-    console.log(
-      `Your eye colours are ${parent1} and ${parent2}, the chances of your child having brown is 75%, green is 18.75% and blue eyes is 6.25%`
-    );
+    brown = 75;
+    green = 18.75;
+    blue = 6.25;
+    child = brown;
+    break;
+  case "greenbrown":
+  case "borwngreen":
+    brown = 50;
+    green = 37.5;
+    blue = 12.5;
+    child = brown;
     break;
   case "bluebrown":
   case "brownblue":
-    console.log(
-      `Your eye colours are ${parent1} and ${parent2}, the chances of your child having brown is 50%, green is 0% and blue eyes is 50%`
-    );
+    brown = 50;
+    green = 0;
+    blue = 50;
+    child = brown;
     break;
   case "greengreen":
-    console.log(
-      `Your eye colours are ${parent1} and ${parent2}, the chances of your child having brown is less than 1%, green is 75% and blue eyes is 25%`
-    );
+    brown = "less than 1";
+    green = 75;
+    blue = 25;
+    child = green;
     break;
   case "greenblue":
   case "bluegreen":
-    console.log(
-      `Your eye colours are ${parent1} and ${parent2}, the chances of your child having brown is 0%, green is 50% and blue eyes is 50%`
-    );
+    brown = 0;
+    green = 50;
+    blue = 50;
+    child = green;
     break;
   case "blueblue":
-    console.log(
-      `Your eye colours are ${parent1} and ${parent2}, the chances of your child having brown is 0%, green is 1% and blue eyes is 99%`
-    );
+    brown = 0;
+    green = 1;
+    blue = 99;
+    child = blue;
   default:
     console.log("invalid combination");
 }
+
+console.log(
+  `Your eye colours are ${parent1} and ${parent2}, the chances of your child having brown is ${brown}%, green is ${green}% and blue eyes is ${blue}%`,
+  "--- solution 3"
+);
 
 /** Solution 2 - Objects **/
 
@@ -190,7 +243,7 @@ switch (parents) {
  * Bonus
  * ***/
 
-let child = "green";
+// let child = "green";
 
 switch (child) {
   case "brown":
