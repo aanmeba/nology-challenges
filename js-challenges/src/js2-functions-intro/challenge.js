@@ -17,7 +17,8 @@
  * @returns {string} John Smith
  */
 export const createFullName = (firstName, lastName) => {
-  return `${firstName} ${lastName}`;
+  return firstName + " " + lastName;
+  // return `${firstName} ${lastName}`;
 };
 
 /**
@@ -29,7 +30,8 @@ export const createFullName = (firstName, lastName) => {
  * @returns {number} 100
  */
 export const findSmallestNumber = (number1, number2) => {
-  return Math.min(number1, number2);
+  return number1 > number2 ? number2 : number1;
+  // return Math.min(number1, number2);
 };
 
 /**
