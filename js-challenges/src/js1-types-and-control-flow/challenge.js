@@ -19,7 +19,8 @@ const firstName = "John";
 const lastName = "Smith";
 
 export const createFullName = () => {
-  return `${firstName} ${lastName}`;
+  return firstName + " " + lastName;
+  // return `${firstName} ${lastName}`;
 };
 
 /**
@@ -32,7 +33,8 @@ const largeNumber1 = 100;
 const largeNumber2 = 200;
 
 export const findLargestNumber = () => {
-  return Math.max(largeNumber1, largeNumber2);
+  return largeNumber1 > largeNumber2 ? largeNumber1 : largeNumber2;
+  // return Math.max(largeNumber1, largeNumber2);
 };
 
 /**
@@ -75,7 +77,11 @@ export const findLengthOfPassword = () => {
 const thing = "I am a thing";
 
 export const findType = () => {
-  return `This is a ${typeof thing}`;
+  return typeof thing === "string" ||
+    typeof thing === "number" ||
+    typeof thing === "boolean"
+    ? `This is a ${typeof thing}`
+    : `I don't know what this thing is`;
 };
 
 /**
@@ -105,6 +111,8 @@ const stringToConvert = "14.45";
 
 export const convertStringToNumber = () => {
   return +stringToConvert;
+  // return Number(stringToConvert);
+  // return parseFloat(stringToConvert);
 };
 
 /**
@@ -118,8 +126,9 @@ export const convertStringToNumber = () => {
 const stringWithUppercaseLetters = "I Am A String With Uppercase Letters";
 
 export const getHasUppercaseLetters = () => {
-  const regex = /[A-Z]/g;
-  return stringWithUppercaseLetters.match(regex).length > 0;
+  // const regex = /[A-Z]/g;
+  // return stringWithUppercaseLetters.match(regex).length > 0;
+  return /[A-Z]/.test(stringWithUppercaseLetters);
 };
 
 /* Expert Challenge */
