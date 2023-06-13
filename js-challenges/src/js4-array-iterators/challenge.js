@@ -22,7 +22,7 @@
  */
 
 export const removeFalseValues = (booleanArr) => {
-  return;
+  return booleanArr.filter((bool) => bool);
 };
 
 /**
@@ -34,7 +34,7 @@ export const removeFalseValues = (booleanArr) => {
  */
 
 export const createPercentageList = (numbersArr) => {
-  return;
+  return numbersArr.map((num) => `${num * 100}%`);
 };
 
 /**
@@ -47,7 +47,7 @@ export const createPercentageList = (numbersArr) => {
  */
 
 export const createListOfPoessessions = (possessionsArr, name) => {
-  return;
+  return possessionsArr.map((item) => `${name} ${item}`);
 };
 
 /**
@@ -72,7 +72,7 @@ export const createListOfPoessessions = (possessionsArr, name) => {
  */
 
 export const convertStringToNumbersArray = (numberString) => {
-  return;
+  return numberString.split("+").map((str) => +str);
 };
 
 /**
@@ -84,7 +84,7 @@ export const convertStringToNumbersArray = (numberString) => {
  */
 
 export const createOddEvenArray = (numberString) => {
-  return;
+  return numberString.split("+").map((num) => (+num % 2 ? "odd" : "even"));
 };
 
 /**
@@ -97,7 +97,7 @@ export const createOddEvenArray = (numberString) => {
  */
 
 export const filterBooksBySearch = (booksArr, searchTerm) => {
-  return;
+  return booksArr.filter((book) => book.includes(searchTerm));
 };
 
 /**
@@ -117,12 +117,11 @@ export const filterBooksBySearch = (booksArr, searchTerm) => {
  */
 
 export const formatStringArray = (stringArr) => {
-  const cleanedArr = stringArr.forEach((string) => {
+  // forEach -> map
+  const cleanedArr = stringArr.map((string) => {
     const cleanStr = string.trim().toLowerCase();
     return cleanStr;
   });
-
-  // console.log(???)
 
   const joinedString = cleanedArr.join("+");
 
@@ -143,7 +142,13 @@ export const formatStringArray = (stringArr) => {
  */
 
 export const formatString = (string) => {
-  return;
+  const regex = /[a-zA-Z]/g;
+  const cleanedStr = string.match(regex);
+  if (!cleanedStr) return [];
+
+  return cleanedStr.map((str, i) =>
+    i % 2 ? str.toLowerCase() : str.toUpperCase()
+  );
 };
 
 /**
@@ -170,5 +175,15 @@ export const formatString = (string) => {
  */
 
 export const fizzBuzz = (mixedArray) => {
-  return;
+  return mixedArray
+    .filter((item) => item > 0)
+    .map((item) => {
+      let str = "";
+
+      if (!(item % 3)) str += "Fizz";
+      if (!(item % 5)) str += "Buzz";
+      if (item % 3 && item % 5) str += item;
+
+      return str;
+    });
 };
