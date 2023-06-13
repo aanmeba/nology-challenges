@@ -12,7 +12,7 @@
 
 const sum = (num) => {
   let sum = 0;
-  for (let i = 0; i <= num; i++) {
+  for (let i = 1; i <= num; i++) {
     sum += i;
   }
   console.log(sum);
@@ -72,15 +72,21 @@ printShoppingList(shoppingList);
 // Final: z becomes a
 
 // const string = "hello world";
-const string = "abc";
+const string = "zzzzz";
 let newString = "";
 
 for (let i = 0; i < string.length; i++) {
-  if (i % 2 !== 0) {
+  // if (i % 2 !== 0) {
+  // 💡💡💡💡💡
+  if (i % 2) {
     newString += string.charAt(i).toUpperCase();
   } else {
-    const newChar = string.charCodeAt(i) + 1;
-    newString += String.fromCharCode(newChar);
+    if (string[i].toLowerCase() === "z") {
+      newString += "a";
+    } else {
+      const newChar = string.charCodeAt(i) + 1;
+      newString += String.fromCharCode(newChar);
+    }
   }
 }
 
@@ -104,9 +110,9 @@ console.log(newString);
 // E.g: calum => calum, rachel => rchel, martyna => martyn
 // ```
 
-const calum = "calum";
-const rachel = "rachel";
-const martyna = "martyna";
+// const calum = "calum";
+// const rachel = "rachel";
+// const martyna = "martyna";
 
 const vowels = ["a", "e", "i", "o", "u"];
 const letters = ["l", "m", "r"];
@@ -124,9 +130,9 @@ const removeVowels = (str) => {
   }
   console.log(newString);
 };
-removeVowels(calum);
-removeVowels(rachel);
-removeVowels(martyna);
+removeVowels("calum");
+removeVowels("rachel");
+removeVowels("martyna");
 
 /*** Challenge: Loop through an array backwards ***/
 
