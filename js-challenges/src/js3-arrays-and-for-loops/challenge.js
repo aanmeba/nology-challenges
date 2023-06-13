@@ -22,7 +22,7 @@
  */
 
 export const createRecipeString = (ingredientsArr) => {
-  return;
+  return ingredientsArr.join("+");
 };
 
 /**
@@ -33,7 +33,7 @@ export const createRecipeString = (ingredientsArr) => {
  */
 
 export const getFirstAndLastItems = (itemsArr) => {
-  return;
+  return [itemsArr[0], itemsArr[itemsArr.length - 1]];
 };
 
 /**
@@ -44,7 +44,15 @@ export const getFirstAndLastItems = (itemsArr) => {
  */
 
 export const totalScores = (scoreArr) => {
-  return;
+  let total = 0;
+  // for (let i = 0; i < scoreArr.length; i++) {
+  //   total += scoreArr[i];
+  // }
+
+  for (const score of scoreArr) {
+    total += score;
+  }
+  return total;
 };
 
 /**
@@ -60,7 +68,11 @@ export const totalScores = (scoreArr) => {
  */
 
 export const totalRange = (rangeMax) => {
-  return;
+  let total = 0;
+  for (let i = 0; i <= rangeMax; i++) {
+    total += i;
+  }
+  return total;
 };
 
 /**
@@ -71,7 +83,10 @@ export const totalRange = (rangeMax) => {
  */
 
 export const moveFirstAndLastItems = (itemsArr) => {
-  return;
+  const newArr = [...itemsArr];
+  const lastItem = newArr.pop();
+
+  return [lastItem, ...newArr];
 };
 
 /**
@@ -89,7 +104,13 @@ export const moveFirstAndLastItems = (itemsArr) => {
  */
 
 export const removeEvenNumbers = (numberArr) => {
-  return;
+  const oddNums = [];
+  for (let num of numberArr) {
+    if (num % 2) {
+      oddNums.push(num);
+    }
+  }
+  return oddNums;
 };
 
 /**
@@ -105,7 +126,10 @@ export const removeEvenNumbers = (numberArr) => {
  */
 
 export const generateAverage = (numberArr) => {
-  return;
+  if (numberArr.length === 0 || !numberArr) return 0;
+  let total = totalScores(numberArr);
+
+  return Math.round(total / numberArr.length);
 };
 
 /**
@@ -116,7 +140,14 @@ export const generateAverage = (numberArr) => {
  */
 
 export const reverseOrder = (toReverseArr) => {
-  return;
+  const reversedArr = [];
+
+  for (let item of toReverseArr) {
+    reversedArr.unshift(item);
+  }
+  return reversedArr;
+  // Use a for...of loop to iterate through each element of the array
+  // Take each element one by one and add it to the beginning of the new array using .unshift() method
 };
 
 /**
@@ -138,7 +169,18 @@ export const reverseOrder = (toReverseArr) => {
  */
 
 export const generateHighscores = (playersArr, scoresArr) => {
-  return;
+  if (
+    playersArr.length !== scoresArr.length ||
+    !playersArr.length ||
+    !scoresArr.length
+  )
+    return "invalid inputs";
+  const formattedArr = [];
+
+  for (let i = 0; i < playersArr.length; i++) {
+    formattedArr.push(`P:${i + 1} ${playersArr[i]} scored ${scoresArr[i]}`);
+  }
+  return formattedArr;
 };
 
 /**
@@ -163,10 +205,23 @@ export const generateHighscores = (playersArr, scoresArr) => {
  * @return {string} "ertnyecpd"
  */
 
-// export const encryptString = (toEncrypt) => {
-//   return;
-// };
-
 export const encryptString = (toEncrypt) => {
-  return;
+  // const bucket = new Array(3).fill([]); // not working!
+  // all elements in the array reference the same empty array [].
+  // any modification to one element affects all the other elements because they all point to the same reference.
+
+  const bucket = [[], [], []];
+  for (let i = 0; i < toEncrypt.length; i++) {
+    const index = i % 3; // i=0, 0, i=1, 1, i=2, 2, i=3, 0...
+    bucket[index].push(toEncrypt[i]);
+  }
+
+  return bucket.flat().join("");
+  // creates an empty array called bucket that contains three nested arrays
+  // iterates over each character of the toEncrypt string
+  // In the loop, the modulo operator (%) is used to calculate the index (index = i % 3) to determine which sub-array of bucket the character should be pushed into
+  // The modulo operation ensures that the index value cycles through 0, 1, and 2 repeatedly as i increments
+  // The character at position i in the toEncrypt string is then pushed into the sub-array determined by the index
+  // The bucket array is flattened using the flat() method to make the all nested arrays into a single array
+  // And then, he join("") method is called on the flattened bucket array to concatenate all the characters together into a single string
 };
