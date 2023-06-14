@@ -22,7 +22,7 @@
  */
 
 export const totalScoresArr = (scoresArr) => {
-  return;
+  return scoresArr.reduce((acc, curr) => acc + curr, 0);
 };
 
 /**
@@ -35,7 +35,7 @@ export const totalScoresArr = (scoresArr) => {
  */
 
 export const reverseString = (toReverse) => {
-  return;
+  return toReverse.split("").reverse().join("");
 };
 
 /**
@@ -48,7 +48,8 @@ export const reverseString = (toReverse) => {
  */
 
 export const sortCharactersAlphabetically = (charcterArr) => {
-  return;
+  return charcterArr.map((char) => char.toLowerCase()).sort();
+  // return charcterArr.sort((a, b) => b.toLowerCase() - a.toLowerCase());
 };
 
 /**
@@ -63,7 +64,7 @@ export const sortCharactersAlphabetically = (charcterArr) => {
  */
 
 export const sortNumbersHighToLow = (numberArr) => {
-  return;
+  return numberArr.sort((a, b) => b - a);
 };
 
 /**
@@ -94,7 +95,9 @@ export const checkItemInstock = (toCheck) => {
     "blueberry",
     "melon",
   ];
-  return;
+  return stockList.includes(toCheck)
+    ? `${toCheck} is instock, it is on aisle ${stockList.indexOf(toCheck)}.`
+    : `Sorry ${toCheck} is not instock.`;
 };
 
 /**
@@ -108,7 +111,8 @@ export const checkItemInstock = (toCheck) => {
  */
 
 export const checkPrimaryColours = (coloursArr) => {
-  return;
+  const primary = ["red", "blue", "yellow"];
+  return coloursArr.every((colour) => primary.includes(colour));
 };
 
 /**
@@ -125,7 +129,7 @@ export const checkPrimaryColours = (coloursArr) => {
  */
 
 export const checkStringPalindrome = (stringOne) => {
-  return;
+  return stringOne === stringOne.split("").reverse().join("");
 };
 
 /**
@@ -139,7 +143,7 @@ export const checkStringPalindrome = (stringOne) => {
  */
 
 export const totalNestedScoresArr = (scoresArr) => {
-  return;
+  return scoresArr.map((arr) => arr.reduce((acc, curr) => acc + curr, 0));
 };
 
 /**
@@ -172,5 +176,16 @@ export const totalNestedScoresArr = (scoresArr) => {
  */
 
 export const encryptString = (toEncrypt) => {
-  return;
+  return toEncrypt
+    .split("")
+    .reduce(
+      (acc, curr, i) => {
+        const index = i % 3;
+        acc[index].push(curr);
+        return acc;
+      },
+      [[], [], []]
+    )
+    .flat()
+    .join("");
 };
