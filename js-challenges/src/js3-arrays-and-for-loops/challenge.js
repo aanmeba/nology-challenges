@@ -146,8 +146,6 @@ export const reverseOrder = (toReverseArr) => {
     reversedArr.unshift(item);
   }
   return reversedArr;
-  // Use a for...of loop to iterate through each element of the array
-  // Take each element one by one and add it to the beginning of the new array using .unshift() method
 };
 
 /**
@@ -217,11 +215,17 @@ export const encryptString = (toEncrypt) => {
   }
 
   return bucket.flat().join("");
-  // creates an empty array called bucket that contains three nested arrays
-  // iterates over each character of the toEncrypt string
-  // In the loop, the modulo operator (%) is used to calculate the index (index = i % 3) to determine which sub-array of bucket the character should be pushed into
-  // The modulo operation ensures that the index value cycles through 0, 1, and 2 repeatedly as i increments
-  // The character at position i in the toEncrypt string is then pushed into the sub-array determined by the index
-  // The bucket array is flattened using the flat() method to make the all nested arrays into a single array
-  // And then, he join("") method is called on the flattened bucket array to concatenate all the characters together into a single string
 };
+{
+  /** Another solution using nested for loop */
+  const encryptString = (toEncrypt) => {
+    let encStr = "";
+
+    for (let i = 0; i < 3; i++) {
+      for (let j = i; j < toEngrypt.length; j += 3) {
+        encStr += toEncrypt[j];
+      }
+    }
+    return encStr;
+  };
+}
