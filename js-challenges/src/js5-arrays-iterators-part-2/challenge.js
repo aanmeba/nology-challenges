@@ -49,7 +49,6 @@ export const reverseString = (toReverse) => {
 
 export const sortCharactersAlphabetically = (charcterArr) => {
   return charcterArr.map((char) => char.toLowerCase()).sort();
-  // return charcterArr.sort((a, b) => b.toLowerCase() - a.toLowerCase());
 };
 
 /**
@@ -129,7 +128,8 @@ export const checkPrimaryColours = (coloursArr) => {
  */
 
 export const checkStringPalindrome = (stringOne) => {
-  return stringOne === stringOne.split("").reverse().join("");
+  return stringOne === reverseString(stringOne);
+  // return stringOne === stringOne.split("").reverse().join("");
 };
 
 /**
@@ -144,6 +144,8 @@ export const checkStringPalindrome = (stringOne) => {
 
 export const totalNestedScoresArr = (scoresArr) => {
   return scoresArr.map((arr) => arr.reduce((acc, curr) => acc + curr, 0));
+  // uses the .map() to iterate over each nested array in the given arr
+  // and then applies the .reduce() on each array to calculate the sum of its elements
 };
 
 /**
@@ -188,4 +190,11 @@ export const encryptString = (toEncrypt) => {
     )
     .flat()
     .join("");
+
+  // it uses .split() to make the string array and then use .reduce()
+  // sets the initial value an array containing 3 nested arrays
+  // uses modulus operator to determine the index of the initial array
+  // pushes current value into the corresponding nested array inside the initial array
+  // uses .flat() to make the nested arrays into a single array
+  // uses .join() to convert the array into a string
 };
