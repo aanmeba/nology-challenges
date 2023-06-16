@@ -49,7 +49,6 @@ export const reverseString = (toReverse) => {
 
 export const sortCharactersAlphabetically = (charcterArr) => {
   return charcterArr.map((char) => char.toLowerCase()).sort();
-  // return charcterArr.sort((a, b) => b.toLowerCase() - a.toLowerCase());
 };
 
 /**
@@ -129,7 +128,33 @@ export const checkPrimaryColours = (coloursArr) => {
  */
 
 export const checkStringPalindrome = (stringOne) => {
-  return stringOne === stringOne.split("").reverse().join("");
+  // return stringOne === reverseString(stringOne);
+  // return stringOne === stringOne.split("").reverse().join("");
+
+  /** solution 2 - the most efficient way
+   * loop through the half
+   * check the frist and the last
+   * check the second first and the second last
+   *
+   * we don't know how many iterations we need
+   * a while loop
+   * break
+   * */
+
+  let head = 0;
+  let tail = stringOne.length - 1;
+  let isPalindrome = true;
+
+  while (head < tail) {
+    if (stringOne.charAt(head) === stringOne.charAt(tail)) {
+      head++;
+      tail--;
+    } else {
+      isPalindrome = false;
+      break;
+    }
+  }
+  return isPalindrome;
 };
 
 /**
@@ -143,7 +168,15 @@ export const checkStringPalindrome = (stringOne) => {
  */
 
 export const totalNestedScoresArr = (scoresArr) => {
-  return scoresArr.map((arr) => arr.reduce((acc, curr) => acc + curr, 0));
+  // return scoresArr.map((arr) => arr.reduce((acc, curr) => acc + curr, 0));
+  // uses the .map() to iterate over each nested array in the given arr
+  // and then applies the .reduce() on each array to calculate the sum of its elements
+
+  /** solution 2 - 2 reduce */
+  return scoresArr.reduce((totals, arr) => {
+    totals.push(arr.reduce((acc, curr) => acc + curr, 0));
+    return totals;
+  }, []);
 };
 
 /**
@@ -188,4 +221,11 @@ export const encryptString = (toEncrypt) => {
     )
     .flat()
     .join("");
+
+  // it uses .split() to make the string array and then use .reduce()
+  // sets an array containing 3 nested arrays as an the initial value
+  // uses modulus operator to determine the index of the initial array
+  // pushes current value into the corresponding nested array inside the initial array
+  // uses .flat() to make the nested arrays into a single array
+  // uses .join() to convert the array into a string
 };
