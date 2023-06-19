@@ -32,8 +32,9 @@ export const getFurniturePrice = (furniture) => {
  * @returns {{name: string, price: number, location: string}} furniture - A furniture object from the catalogue
  */
 export const setFurnitureStoreLocation = (furniture, location) => {
-  furniture.location = location;
-  return furniture;
+  // furniture.location = location;
+  // return furniture;
+  return { ...furniture, location };
 };
 
 /**
@@ -78,8 +79,9 @@ export const setUserName = (user, username) => {
  * @returns {{fullName: string, firstName: string, lastName: string}} A customer object from the database with the name separated into first and last
  */
 export const splitFullNameToFirstAndLast = (customer) => {
-  const [firstName, lastName] = customer.fullName.split(" ");
-  return { ...customer, firstName, lastName };
+  const { fullName } = customer;
+  const [firstName, lastName] = fullName.split(" ");
+  return { fullName, firstName, lastName };
 };
 
 /**
@@ -117,8 +119,9 @@ export const getUserAddress = (user) => {
  * @return {{id: number, name: string, allergies: string[], safeAllergens: string[]}} customer
  */
 export const setSafeAllergens = (customer, allergenList) => {
+  const { allergies } = customer;
   const safeAllergens = allergenList.filter((al) => {
-    return !customer.allergies.includes(al);
+    return !allergies.includes(al);
   });
   customer.safeAllergens = safeAllergens;
   return customer;
