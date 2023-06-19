@@ -12,10 +12,10 @@ const translate = {
   truskawka: "strawberry"
 } */
 
-const newObj = Object.entries(translate).reduce((acc, curr) => {
+const translated = Object.entries(translate).reduce((acc, curr) => {
   const [key, value] = curr;
   acc[value] = key;
   return acc;
 }, {});
 
-console.log(newObj);
+console.log(translated);

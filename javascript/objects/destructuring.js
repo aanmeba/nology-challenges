@@ -13,12 +13,17 @@ const movie = {
  */
 
 const getTitleAndGenre = (obj) => {
-  const {
-    title,
-    genre: [genre1, genre2, genre3],
-  } = obj;
-  console.log(title, genre1, genre2);
-  return `The genres of ${title} are ${genre1}, ${genre2}, ${genre3}`;
+  // const {
+  //   title,
+  //   genre: [genre1, genre2, genre3],
+  // } = obj;
+
+  // return `The genres of ${title} are ${genre1}, ${genre2}, ${genre3}`;
+
+  // Other solution
+  const { title, genre } = obj;
+  const genreList = genre.join(", ");
+  return `The genres of ${title} are ${genreList}`;
 };
 
 // checking if returned the right value
@@ -46,11 +51,26 @@ const recipe = {
  */
 
 const renameKey = (obj) => {
-  const { mealIngredients, ...rest } = obj;
-  return { ...rest, ingredients: mealIngredients };
+  // const { mealIngredients, ...rest } = obj;
+  // return { ...rest, ingredients: mealIngredients };
+
+  // Other solution - 1
+  const { mealIngredients: ingredients, ...rest } = obj;
+  return { ...rest, ingredients };
 };
 
-console.log(renameKey(recipe));
+console.log(renameKey(recipe), "-- renameKey");
+
+// Other solution - 2
+const renameKey2 = (obj, needToRename, newKeyName) => {
+  const { [needToRename]: value, ...rest } = obj;
+  return { [newKeyName]: value, ...rest };
+};
+
+console.log(
+  renameKey2(recipe, "mealIngredients", "ingredients"),
+  "-- renameKey2"
+);
 
 // 3
 
@@ -78,7 +98,7 @@ const codingSchool = {
 const returnFirstCity = (obj) => {
   // 1
   // const {
-  //   offices: [firstOffice, ...rest],
+  //   offices: [firstOffice],
   // } = obj;
   // const { city } = firstOffice;
 
@@ -88,7 +108,7 @@ const returnFirstCity = (obj) => {
 
   // 3
   const {
-    offices: [{ city }, ...rest],
+    offices: [{ city }],
   } = obj;
 
   return city;
@@ -124,8 +144,15 @@ const postsArray = [
 
 const newPostArr = (arr) => {
   return arr.map((obj) => {
-    const { id, createdBy, commentNo } = obj;
-    return { postId: id, creator: createdBy, postComment: commentNo };
+    // const { id, createdBy, commentNo } = obj;
+    // return { postId: id, creator: createdBy, postComment: commentNo };
+
+    // Other solution
+    // - Rename the property when destructuring an object
+    const { id: postId, createdBy, commentNo: postComment } = obj;
+    // We don't want our key to be called createdBy
+    // we add a new key called creator and we assign the value stored in varaible createdBy
+    return { postId, creator: createdBy, postComment };
   });
 };
 
@@ -146,7 +173,17 @@ const forecast = {
  */
 
 const getTodayLow = (obj) => {
-  return obj.today.low;
+  const {
+    today: { low },
+  } = obj;
+  return low;
 };
 
 console.log(getTodayLow(forecast));
+
+/** Array destructuring */
+const arr = [1, 2, 3];
+const [banana, second, ...rest] = arr;
+console.log(banana); // 1
+console.log(second); // 2
+console.log([banana, ...rest]); // [1, 3]
