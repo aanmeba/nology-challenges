@@ -139,6 +139,10 @@ export const setSafeAllergens = (customer, allergenList) => {
  * @returns {{id: number, location: string, sku: string, name: string, price: number, isAvailable: boolean}}
  */
 export const mergeFurniture = (furnitureLocationData, furnitureProductData) => {
-  const { location, sku } = furnitureLocationData;
-  return { ...furnitureProductData, location, sku };
+  // const { location, sku } = furnitureLocationData;
+  // return { ...furnitureProductData, location, sku };
+
+  // other solution
+  const { id, ...rest } = furnitureLocationData;
+  return { ...furnitureProductData, ...rest };
 };
