@@ -17,7 +17,7 @@
  * @returns {string[]} A list of the employees quotes for the website
  */
 export const getEmployeeQuotes = (employeeArr) => {
-  // Write code here
+  return employeeArr.map((employee) => employee.quote);
 };
 
 /**
@@ -27,7 +27,7 @@ export const getEmployeeQuotes = (employeeArr) => {
  * @returns {{name: string, quote: string, yearsEmployed: number, isManagement: boolean}[]} An array containing only managers
  */
 export const getTheManagers = (employeeArr) => {
-  // Write code here
+  return employeeArr.filter((em) => em.isManagement);
 };
 
 /**
@@ -37,7 +37,7 @@ export const getTheManagers = (employeeArr) => {
  * @returns {number} The number of the keys on the object
  */
 export const getNumberOfKeys = (object) => {
-  // Write code here
+  return Object.keys(object).length;
 };
 
 /* Intermediate Challenges */
@@ -50,7 +50,12 @@ export const getNumberOfKeys = (object) => {
  * @returns {{name: string, price: number, hasFreeShipping: boolean, quantity: number}} The most expensive item in the shopping basket
  */
 export const findMostExpensiveItem = (shoppingBasketArr) => {
-  // Write code here
+  return shoppingBasketArr.reduce((acc, curr, i) => {
+    if (i === 0 || acc.price < curr.price) {
+      acc = { ...curr };
+    }
+    return acc;
+  }, {});
 };
 
 /**
@@ -69,7 +74,13 @@ export const findMostExpensiveItem = (shoppingBasketArr) => {
  * @returns {{name: string, price: number, hasFreeShipping: boolean, quantity: number, totalPrice: number}[]} A new array where each object has had a total price added to it
  */
 export const settotalPrice = (shoppingBasketArr) => {
-  // Write code here
+  // return shoppingBasketArr.map((item) => {
+  //   return { ...item, totalPrice: item.price * item.quantity };
+  // });
+  return shoppingBasketArr.map((item) => {
+    const { price, quantity } = item;
+    return { ...item, totalPrice: price * quantity };
+  });
 };
 
 /**
@@ -79,7 +90,7 @@ export const settotalPrice = (shoppingBasketArr) => {
  * @returns {number} The total cost of the order
  */
 export const totalShoppingBasket = (shoppingBasketArr) => {
-  // Write code here
+  return shoppingBasketArr.reduce((acc, curr) => acc + curr.totalPrice, 0);
 };
 
 /* Advanced Challenges */
@@ -92,7 +103,10 @@ export const totalShoppingBasket = (shoppingBasketArr) => {
  * @returns {{id: number, name: string, ingredients: string[], country: string}[]} An array of cleaned meal objects
  */
 export const getImportantKeys = (mealsArr) => {
-  // Write code here
+  return mealsArr.map((meal) => {
+    const { timeStamp, userCreated, ...rest } = meal;
+    return { ...rest };
+  });
 };
 
 /**
@@ -105,8 +119,46 @@ export const getImportantKeys = (mealsArr) => {
  * @param {{id: number, name: string, ingredients: string[], country: string, isVegetarian?: boolean, timeToCook?: number}[]} mealsArr - An array containing meal objects
  * @returns {{id: number, name: string, ingredients: string[], country: string, isVegetarian: boolean, timeToCook: number}[]}
  */
+
 export const setImportantKeys = (mealsArr) => {
-  // Write code here
+  // Should not modify the original array - not passed
+  return [...mealsArr].map((meal) => {
+    if (!meal.hasOwnProperty("isVegetarian")) {
+      meal.isVegetarian = false;
+    }
+    if (!meal.hasOwnProperty("timeToCook")) {
+      meal.timeToCook = 15;
+    }
+    return { ...meal };
+  });
+
+  // return mealsArr.reduce((acc, curr) => {
+  //   const keys = Object.keys(curr);
+  //   if (!keys.includes("isVegetarian")) {
+  //     curr["isVegetarian"] = false;
+  //   }
+  //   if (!keys.includes("timeToCook")) {
+  //     curr["timeToCook"] = 15;
+  //   }
+  //   acc.push(curr);
+
+  //   return acc;
+  // }, []);
+
+  // return mealsArr.map((meal, i) => {
+  //   const keys = Object.keys(meal);
+  //   if (!keys.includes("isVegetarian")) {
+  //     meal.isVegetarian = false;
+  //     // console.log(keys, meal, "--add isVegetarian");
+  //   }
+  //   if (!keys.includes("timeToCook")) {
+  //     meal.timeToCook = 15;
+  //     // console.log(keys, meal, "--add timeToCook");
+  //   }
+  //   // if (!meal.isVegetarian) meal.isVegetarian = false;
+  //   // if (!meal.timeToCook) meal.timeToCook = 15;
+  //   return meal;
+  // });
 };
 
 /* Expert Challenge */
@@ -138,5 +190,20 @@ export const setImportantKeys = (mealsArr) => {
  * }[]} A Cleaned array of cocktail data
  */
 export const cleanCocktailResponseData = (cocktailData) => {
-  // Write code here
+  return cocktailData.map((data) => {
+    const {
+      idDrink: id,
+      strDrink: drink,
+      strCategory: category,
+      strAlcoholic: alcoholic,
+      strInstructions: instructions,
+      ...rest
+    } = data;
+
+    // take the values of the rest and remove null
+    const ingredients = Object.values({ ...rest }).filter(
+      (ingredient) => ingredient
+    );
+    return { id, drink, category, alcoholic, instructions, ingredients };
+  });
 };

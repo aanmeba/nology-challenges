@@ -14,7 +14,7 @@
  *
  * furniture = {
  *  name: "lack",
- *  price: 6
+ *  price: 6,
  * }
  *
  * @param {{name: string, price: number}} furniture - A piece of furniture from the catalogue
@@ -81,7 +81,7 @@ export const setUserName = (user, username) => {
 export const splitFullNameToFirstAndLast = (customer) => {
   const { fullName } = customer;
   const [firstName, lastName] = fullName.split(" ");
-  return { fullName, firstName, lastName };
+  // return { fullName, firstName, lastName };
 };
 
 /**
@@ -107,7 +107,8 @@ export const accessGivenKey = (object, key) => {
  * @returns {string} An address string for a shipping label
  */
 export const getUserAddress = (user) => {
-  return Object.values(user.address).join(" ");
+  const { address } = user;
+  return Object.values(address).join(" ");
 };
 
 /**
