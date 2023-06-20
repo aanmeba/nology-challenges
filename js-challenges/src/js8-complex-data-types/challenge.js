@@ -50,12 +50,32 @@ export const getNumberOfKeys = (object) => {
  * @returns {{name: string, price: number, hasFreeShipping: boolean, quantity: number}} The most expensive item in the shopping basket
  */
 export const findMostExpensiveItem = (shoppingBasketArr) => {
-  return shoppingBasketArr.reduce((acc, curr, i) => {
-    if (i === 0 || acc.price < curr.price) {
-      acc = { ...curr };
-    }
-    return acc;
-  }, {});
+  // return shoppingBasketArr.reduce((acc, curr, i) => {
+  //   if (i === 0 || acc.price < curr.price) {
+  //     // acc = curr;
+  //     // acc = { ...curr };
+  //     return curr;
+  //   }
+  //   return acc;
+  // }, {});
+
+  // other solution - 1 - reduce
+  // return shoppingBasketArr.reduce((acc, curr, i) => {
+  //   if (acc.price < curr.price) {
+  //     return curr;
+  //   }
+  //   return acc;
+  // }, {});
+
+  // other solution - 2 - filter -> find
+  // const highestPrice = Math.max(...shoppingBasketArr.map((item) => item.price));
+  // const mostExpensiveItems = shoppingBasketArr.filter(
+  //   (item) => item.price === highestPrice
+  // );
+  // return mostExpensiveItems[0];
+
+  // other solution - 3 - sort
+  return shoppingBasketArr.sort((a, b) => b.price - a.price)[0];
 };
 
 /**
@@ -121,15 +141,15 @@ export const getImportantKeys = (mealsArr) => {
  */
 
 export const setImportantKeys = (mealsArr) => {
-  // Should not modify the original array - not passed
-  return [...mealsArr].map((meal) => {
-    if (!meal.hasOwnProperty("isVegetarian")) {
-      meal.isVegetarian = false;
+  return mealsArr.map((meal) => {
+    const newMeal = { ...meal };
+    if (!newMeal.hasOwnProperty("isVegetarian")) {
+      newMeal.isVegetarian = false;
     }
-    if (!meal.hasOwnProperty("timeToCook")) {
-      meal.timeToCook = 15;
+    if (!newMeal.hasOwnProperty("timeToCook")) {
+      newMeal.timeToCook = 15;
     }
-    return { ...meal };
+    return { ...newMeal };
   });
 
   // return mealsArr.reduce((acc, curr) => {
@@ -201,9 +221,8 @@ export const cleanCocktailResponseData = (cocktailData) => {
     } = data;
 
     // take the values of the rest and remove null
-    const ingredients = Object.values({ ...rest }).filter(
-      (ingredient) => ingredient
-    );
+    // work with `rest` instead of `{...rest}`
+    const ingredients = Object.values(rest).filter((ingredient) => ingredient);
     return { id, drink, category, alcoholic, instructions, ingredients };
   });
 };
