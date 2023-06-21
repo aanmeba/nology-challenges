@@ -19,9 +19,18 @@ console.log the value of rejected or resolved promise
 const delayedIncDec = (n, mode, delay = 2500) => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      if (mode === "inc") resolve(n++);
-      if (mode === "dec") resolve(n--);
-      else reject("Reject - invalid mode");
+      if (mode === "inc" && typeof n === "number") {
+        n++;
+        resolve(n);
+      }
+      if (mode === "dec" && !isNaN(n)) {
+        n--;
+        resolve(n);
+      }
+      // Difference how to use ++/-- prefix or postfix
+      // if (mode === "inc") resolve(++n);
+      // if (mode === "dec") resolve(--n);
+      else reject(isNaN(n) ? `invalid input: ${n}` : `invalid mode: ${mode}`);
     }, delay);
   });
 };
@@ -31,5 +40,9 @@ delayedIncDec(10, "inc")
   .catch((err) => console.log(err));
 
 delayedIncDec(10, "abc", 1000)
+  .then((val) => console.log(val, "--resolved value"))
+  .catch((err) => console.log(err));
+
+delayedIncDec("hello", "inc")
   .then((val) => console.log(val, "--resolved value"))
   .catch((err) => console.log(err));
