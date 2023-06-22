@@ -60,7 +60,7 @@ export const findMostExpensiveItem = (shoppingBasketArr) => {
   // }, {});
 
   // other solution - 1 - reduce
-  // return shoppingBasketArr.reduce((acc, curr, i) => {
+  // return shoppingBasketArr.reduce((acc, curr) => {
   //   if (acc.price < curr.price) {
   //     return curr;
   //   }
@@ -69,10 +69,10 @@ export const findMostExpensiveItem = (shoppingBasketArr) => {
 
   // other solution - 2 - filter -> find
   // const highestPrice = Math.max(...shoppingBasketArr.map((item) => item.price));
-  // const mostExpensiveItems = shoppingBasketArr.filter(
+  // const mostExpensiveItems = shoppingBasketArr.find(
   //   (item) => item.price === highestPrice
   // );
-  // return mostExpensiveItems[0];
+  // return mostExpensiveItems;
 
   // other solution - 3 - sort
   return shoppingBasketArr.sort((a, b) => b.price - a.price)[0];
@@ -99,7 +99,10 @@ export const settotalPrice = (shoppingBasketArr) => {
   // });
   return shoppingBasketArr.map((item) => {
     const { price, quantity } = item;
-    return { ...item, totalPrice: price * quantity };
+    const newItem = { ...item };
+    newItem.totalPrice = price * quantity;
+    return newItem;
+    // return { ...item, totalPrice: price * quantity };
   });
 };
 
@@ -125,7 +128,7 @@ export const totalShoppingBasket = (shoppingBasketArr) => {
 export const getImportantKeys = (mealsArr) => {
   return mealsArr.map((meal) => {
     const { timeStamp, userCreated, ...rest } = meal;
-    return { ...rest };
+    return rest;
   });
 };
 
@@ -149,7 +152,7 @@ export const setImportantKeys = (mealsArr) => {
     if (!newMeal.hasOwnProperty("timeToCook")) {
       newMeal.timeToCook = 15;
     }
-    return { ...newMeal };
+    return newMeal;
   });
 
   // return mealsArr.reduce((acc, curr) => {
@@ -165,19 +168,16 @@ export const setImportantKeys = (mealsArr) => {
   //   return acc;
   // }, []);
 
-  // return mealsArr.map((meal, i) => {
+  // return mealsArr.map((meal) => {
   //   const keys = Object.keys(meal);
+  //   const newMeal = { ...meal };
   //   if (!keys.includes("isVegetarian")) {
-  //     meal.isVegetarian = false;
-  //     // console.log(keys, meal, "--add isVegetarian");
+  //     newMeal.isVegetarian = false;
   //   }
   //   if (!keys.includes("timeToCook")) {
-  //     meal.timeToCook = 15;
-  //     // console.log(keys, meal, "--add timeToCook");
+  //     newMeal.timeToCook = 15;
   //   }
-  //   // if (!meal.isVegetarian) meal.isVegetarian = false;
-  //   // if (!meal.timeToCook) meal.timeToCook = 15;
-  //   return meal;
+  //   return newMeal;
   // });
 };
 
@@ -222,6 +222,7 @@ export const cleanCocktailResponseData = (cocktailData) => {
 
     // take the values of the rest and remove null
     // work with `rest` instead of `{...rest}`
+
     const ingredients = Object.values(rest).filter((ingredient) => ingredient);
     return { id, drink, category, alcoholic, instructions, ingredients };
   });
