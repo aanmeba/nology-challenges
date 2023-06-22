@@ -1,0 +1,25 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+section {
+  display: flex;
+  flex-wrap: wrap;
+}
+section div {
+  width: 200px;
+  border: 1px solid black;
+  margin: 1rem;
+}
+
+h2,
+p {
+  margin: 0;
+  padding: 0 0.5rem;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  border-bottom: 1px solid black;
+}
