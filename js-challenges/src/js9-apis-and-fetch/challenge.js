@@ -17,8 +17,9 @@
  * @param {string} url - The url of the API to fetch from
  * @returns {{id: string, name: string, age: number, height: number, interests: string[], isEmployed: boolean}[]} The data from the API
  */
- export const getData = (url) => {
-  // Your code here
+export const getData = async (url) => {
+  const response = await fetch(url);
+  return await response.json();
 };
 
 /**
@@ -27,8 +28,10 @@
  * @param {string} url - The url of the API to fetch from
  * @returns {string[]} The list of names from the API
  */
-export const getNames = (url) => {
-  // Your code here
+export const getNames = async (url) => {
+  const response = await fetch(url);
+  const data = await response.json();
+  return data.map((d) => d.name);
 };
 
 /**
@@ -37,8 +40,10 @@ export const getNames = (url) => {
  * @param {string} url - The url of the API to fetch from
  * @return {{id: string, name: string, age: number, height: number, interests: string[], isEmployed: boolean}[]} The employed people from the API
  */
-export const getEmployedPeople = (url) => {
-  // Your code here
+export const getEmployedPeople = async (url) => {
+  const response = await fetch(url);
+  const data = await response.json();
+  return data.filter((d) => d.isEmployed);
 };
 
 /* Intermediate Challenges */
@@ -51,8 +56,10 @@ export const getEmployedPeople = (url) => {
  * @param {string} id - The ID of the person object to return
  * @returns {{id: string, name: string, age: number, height: number, interests: string[], isEmployed: boolean} | string} A person object OR A string saying "Person not found"
  */
-export const findPersonWithId = (url, id) => {
-  // Your code here
+export const findPersonWithId = async (url, id) => {
+  const response = await fetch(url);
+  const data = await response.json();
+  return data.find((d) => d.id === id) ?? "Person not found";
 };
 
 /**
@@ -63,8 +70,12 @@ export const findPersonWithId = (url, id) => {
  * @param {string} interest - The interest to match
  * @returns {{id: string, name: string, age: number, height: number, interests: string[], isEmployed: boolean}[] | string} A group of person objects OR A string saying "No people with interest found"
  */
-export const getPeopleWithMatchingInterests = (url, interest) => {
-  // Your code here
+export const getPeopleWithMatchingInterests = async (url, interest) => {
+  const response = await fetch(url);
+  const data = await response.json();
+
+  const found = data.filter((d) => d.interests.includes(interest));
+  return found.length ? found : "No people with interest found";
 };
 
 /* Advanced Challenges */
@@ -101,8 +112,29 @@ export const getPeopleWithMatchingInterests = (url, interest) => {
  * @param {string} url - The url of the API to fetch from
  * @returns {{id: string, name: string, age: number, height: number, interests: string[], isEmployed: boolean, decscription: string}[]} A group of person objects with added description key
  */
-export const setDescriptions = (url) => {
-  // Your code here
+export const setDescriptions = async (url) => {
+  const response = await fetch(url);
+  const data = await response.json();
+
+  const result = data.map((d) => {
+    const { name, age, height, interests, isEmployed } = d;
+    const personWithDesc = { ...d };
+
+    const interestStr = interests.reduce((acc, curr, i, arr) => {
+      if (i === arr.length - 2) acc += curr + " and ";
+      else if (i === arr.length - 1) acc += curr;
+      else acc += curr + ", ";
+      return acc;
+    }, "");
+
+    personWithDesc.description = `My name is ${name}, I am ${age} years old and ${height}cm tall. I enjoy ${interestStr}. I am ${
+      isEmployed ? "currently employed" : "not currently employed"
+    }`;
+
+    return personWithDesc;
+  });
+
+  return result;
 };
 
 /* Expert Challenges */
@@ -151,6 +183,31 @@ export const setDescriptions = (url) => {
  *  isEmployed: boolean,
  * }[]}
  */
-export const setInterestDetails = (peopleUrl, interestsUrl) => {
-  // Your code here
+export const setInterestDetails = async (peopleUrl, interestsUrl) => {
+  const peopleRes = await fetch(peopleUrl);
+  const peopleData = await peopleRes.json();
+  const interestsRes = await fetch(interestsUrl);
+  const interestsData = await interestsRes.json();
+
+  const dataWithInterestDetails = peopleData.map((ppl) => {
+    const newPerson = { ...ppl };
+    const { interests } = ppl;
+
+    newPerson.interests = interests.map((interest) =>
+      interestsData.find((data) => data.interest === interest)
+    );
+
+    return newPerson;
+  });
+
+  return dataWithInterestDetails;
 };
+
+// peopleData.interests -> interests: [ 'reading', 'juggling', 'knitting' ],
+// interestsData ->[
+// {
+//   interest: 'swimming',
+//   costPerAnnum: 800,
+//   sizeOfCommunity: 20000000,
+//   isDoneInGroups: false
+// }, ... ]
