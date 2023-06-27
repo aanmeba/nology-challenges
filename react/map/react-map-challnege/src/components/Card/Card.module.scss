@@ -27,9 +27,14 @@
       font-size: 2.5rem;
       margin: 0;
     }
+    // add different type of BEM name
+    &.moonless {
+      background-color: rgba(217, 217, 217, 0.3);
+      color: black;
+    }
   }
-  &__black {
-    background-color: rgba(217, 217, 217, 0.3);
-    color: black;
-  }
+  // &__black {
+  //   background-color: rgba(217, 217, 217, 0.3);
+  //   color: black;
+  // }
 }
