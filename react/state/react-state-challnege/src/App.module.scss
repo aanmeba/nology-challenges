@@ -1,0 +1,28 @@
+$light: rgb(242, 242, 242);
+$dark: rgb(27, 27, 27);
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.dark {
+  background-color: $dark;
+  color: $light;
+}
+
+.light {
+  color: $dark;
+  background-color: $light;
+}
+
+.button__light {
+  border: 2px solid $dark;
+  background-color: $light;
+  color: $dark;
+}
+.button__dark {
+  border: 2px solid $light;
+  background-color: $dark;
+  color: $light;
+}
