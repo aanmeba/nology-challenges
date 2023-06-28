@@ -1,0 +1,48 @@
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+@mixin inputs {
+  width: 200px;
+  border-radius: 8px;
+  padding: 0.5rem;
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  align-items: flex-end;
+  gap: 1rem;
+  // padding: 1rem;
+  // border-bottom: 2px solid black;
+}
+
+.input {
+  @include flex-column();
+  input {
+    @include inputs();
+    height: 35px;
+  }
+}
+
+.select {
+  @include flex-column();
+  select {
+    @include inputs();
+    font-size: 1rem;
+  }
+}
+
+.submit__button {
+  height: 35px;
+  padding: 0.6rem 1rem;
+  font-size: default;
+  // font-weight: bold;
+  background-color: transparent;
+  border: 1px solid black;
+  color: black;
+  text-align: center;
+  border-radius: 8px;
+}

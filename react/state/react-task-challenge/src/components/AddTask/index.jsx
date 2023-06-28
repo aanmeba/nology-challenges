@@ -1,3 +1,5 @@
+import styles from "./AddTask.module.scss";
+
 const AddTask = ({ handleTasks }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -10,12 +12,13 @@ const AddTask = ({ handleTasks }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor="task">New Task: </label>
+    <form onSubmit={handleSubmit} className={styles.container}>
+      <div className={styles.input}>
+        <label htmlFor="task">New Task </label>
         <input type="text" name="task" id="task" />
       </div>
-      <div>
+      <div className={styles.select}>
+        <label htmlFor="priority">Priority </label>
         <select name="priority" id="priority">
           <option value="very high">Very High</option>
           <option value="high">High</option>
@@ -23,7 +26,9 @@ const AddTask = ({ handleTasks }) => {
           <option value="low">Low</option>
         </select>
       </div>
-      <button type="submit">Add</button>
+      <button className={styles.submit__button} type="submit">
+        Add
+      </button>
     </form>
   );
 };
