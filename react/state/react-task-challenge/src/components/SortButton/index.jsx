@@ -1,8 +1,11 @@
+import { rankPriority } from "../../data/priorities";
 import styles from "./SortButton.module.scss";
 
 const SortButton = ({ tasks, handleTasks }) => {
   const handleButton = () => {
-    const sortedList = tasks && sortTasks(tasks);
+    const sortedList =
+      tasks &&
+      tasks.sort((a, b) => rankPriority(a.priority) - rankPriority(b.priority));
     sortedList && handleTasks(sortedList);
   };
 
@@ -13,12 +16,12 @@ const SortButton = ({ tasks, handleTasks }) => {
   );
 };
 
-const sortTasks = (arr) => {
-  const orderOfPriority = ["very high", "high", "medium", "low"];
-  return arr.sort(
-    (a, b) =>
-      orderOfPriority.indexOf(a.priority) - orderOfPriority.indexOf(b.priority)
-  );
-};
+// const sortTasks = (arr) => {
+//   const orderOfPriority = ["very high", "high", "medium", "low"];
+//   return arr.sort(
+//     (a, b) =>
+//       orderOfPriority.indexOf(a.priority) - orderOfPriority.indexOf(b.priority)
+//   );
+// };
 
 export default SortButton;

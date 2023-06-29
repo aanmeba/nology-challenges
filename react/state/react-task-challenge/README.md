@@ -28,3 +28,7 @@ Create a component called Task Card that will contain the task name, priority, a
 
 - Style cards based on priority
 - Button to change sort from ascending to descending
+
+### What I've learned
+
+- separate priorities as a data and loop through them in addTask and Sort component

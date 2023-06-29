@@ -9,6 +9,7 @@
   border-radius: 8px;
   padding: 0.5rem;
   box-sizing: border-box;
+  border: 1px solid black;
 }
 
 .container {
@@ -23,7 +24,7 @@
   @include flex-column();
   input {
     @include inputs();
-    height: 35px;
+    height: 37px;
   }
 }
 
